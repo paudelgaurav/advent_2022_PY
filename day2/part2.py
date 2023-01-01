@@ -14,6 +14,10 @@ C - Scissors
 X - ROCK - 1
 Y - PAPER - 2
 Z - Scissors - 3
+
+X - lose
+Y - draw
+Z - win
 """
 
 result_map = {
@@ -28,5 +32,18 @@ result_map = {
     "C Z": 6,
 }
 
-total_score = sum(result_map[play] for play in plays)
+play_map = {
+    "A X": "A Z",
+    "A Y": "A X",
+    "A Z": "A Y",
+    "B X": "B X",
+    "B Y": "B Y",
+    "B Z": "B Z",
+    "C X": "C Y",
+    "C Y": "C Z",
+    "C Z": "C X",
+}
+
+
+total_score = sum(result_map[play_map[play]] for play in plays)
 print(total_score)
